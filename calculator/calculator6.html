@@ -49,7 +49,7 @@ calculator.calculate = function();
 
     <script>
 
-        input = {
+        inputExpression = {
             getExpression: function () {
                 let expression = prompt("식을 적어보세요");
                 return expression;
@@ -61,7 +61,6 @@ calculator.calculate = function();
                 if (expression.includes("+")) {
                     let [first, second] = expression.split("+")
                     result = first * 1 + second * 1
-
                 }
                 if (expression.includes("-")) {
                     let [first, second] = expression.split("-")
@@ -113,8 +112,6 @@ calculator.calculate = function();
             finallyResult: function (sndResult) {
                 alert(`이게 결과야 임마 ${sndResult}`)
             }
-        }
-        resultAlert = {
         }
 
         function main() {
