@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1~100까지 짝수의 합을 구하기</title>
+</head>
+
+<body>
+    <h2>1~100까지 짝수의 합</h2>
+    <script>
+        var evenNumbers = [];
+        for (i = 0; i <= 100; i++) {
+            if (i % 2 === 0) {
+                evenNumbers.push(i)
+            }
+        }
+        var reducer = (accumulator, currentValue) => accumulator + currentValue;
+        var evenNumberSum = evenNumbers.reduce(reducer)
+        document.write(evenNumberSum);
+    </script>
+</body>
+
+</html>
