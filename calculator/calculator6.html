@@ -1,0 +1,131 @@
+<!-- <객체를 활용해 사칙연산 구현>
+
+학습 목표
+프로그래밍에서 객체를 경험한다.
+요구사항
+사용자의 값을 입력하는 객체, 사칙연산을 구현하는 객체, 출력하는 객체를 이용해서 프로그램을 구현한다.
+main 함수를 사용한다.
+힌트
+
+<code>input = {}
+input.getFirstValue = function();
+input.getSecondValue= function();
+intput.getOperator = function();
+
+
+output = {}
+output.print = function();
+
+calculator = {}
+calculator.calculate = function();
+</code>
+<code>input = {}
+input.getFirstValue = function();
+input.getSecondValue= function();
+intput.getOperator = function();
+ 
+ 
+output = {}
+output.print = function();
+ 
+calculator = {}
+calculator.calculate = function();
+</code>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator6</title>
+</head>
+
+<body>
+    <h1>계산기</h1>
+    <div id="output">힘내</div>
+
+    <script>
+
+        input = {
+            getExpression: function () {
+                let expression = prompt("식을 적어보세요");
+                return expression;
+            }
+        }
+        calculator = {
+            firstExpressionAnalysis: function (expression) {
+                let result;
+                if (expression.includes("+")) {
+                    let [first, second] = expression.split("+")
+                    result = first * 1 + second * 1
+
+                }
+                if (expression.includes("-")) {
+                    let [first, second] = expression.split("-")
+                    result = first * 1 - second * 1
+                }
+                if (expression.includes("*")) {
+                    let [first, second] = expression.split("*")
+                    result = first * 1 * second * 1
+                }
+                if (expression.includes("/")) {
+                    let [first, second] = expression.split("/")
+                    result = first * 1 / second * 1
+                }
+                return result;
+            }
+        }
+        sndCalculator = {
+            getSecondExpression: function (result) {
+                let sndInputStr = prompt(`${result}에 이어서 연산해 임마`);
+                return sndInputStr;
+            },
+            secondExpressionAnalysis: function (result) {
+                let sndResult = result;
+                while (true) {
+                    let sndInputStr = sndCalculator.getSecondExpression(sndResult);
+                    if (sndInputStr.includes("+")) {
+                        let [, number] = sndInputStr.split("+")
+                        sndResult += number * 1
+                    }
+                    if (sndInputStr.includes("-")) {
+                        let [, number] = sndInputStr.split("-")
+                        sndResult -= number * 1
+                    }
+                    if (sndInputStr.includes("*")) {
+                        let [, number] = sndInputStr.split("*")
+                        sndResult *= number * 1
+                    }
+                    if (sndInputStr.includes("/")) {
+                        let [, number] = sndInputStr.split("/")
+                        sndResult /= number * 1
+                    }
+                    if (sndInputStr.includes("q")) {
+                        sndCalculator.finallyResult(sndResult)
+                        break;
+                    }
+                }
+                return sndResult;
+            },
+            finallyResult: function (sndResult) {
+                alert(`이게 결과야 임마 ${sndResult}`)
+            }
+        }
+        resultAlert = {
+        }
+
+        function main() {
+            let expression = input.getExpression();
+            let result = calculator.firstExpressionAnalysis(expression);
+            let sndResult = sndCalculator.secondExpressionAnalysis(result);
+        }
+        main();
+
+    </script>
+
+</body>
+
+</html>
