@@ -49,13 +49,13 @@ calculator.calculate = function();
 
     <script>
 
-        inputExpression = {
+        let inputExpression = {
             getExpression: function () {
                 let expression = prompt("식을 적어보세요");
                 return expression;
             }
         }
-        calculator = {
+        let calculator = {
             firstExpressionAnalysis: function (expression) {
                 let result;
                 if (expression.includes("+")) {
@@ -77,7 +77,7 @@ calculator.calculate = function();
                 return result;
             }
         }
-        sndCalculator = {
+        let sndCalculator = {
             getSecondExpression: function (result) {
                 let sndInputStr = prompt(`${result}에 이어서 연산해 임마`);
                 return sndInputStr;
@@ -115,7 +115,7 @@ calculator.calculate = function();
         }
 
         function main() {
-            let expression = input.getExpression();
+            let expression = inputExpression.getExpression();
             let result = calculator.firstExpressionAnalysis(expression);
             let sndResult = sndCalculator.secondExpressionAnalysis(result);
         }
