@@ -18,7 +18,7 @@
 
 let inputNumbers = prompt("원하는 단수를 입력<br>ex) 8,7 --> ...8*7").split(",");
         let userNumbers = inputNumbers.map(strNumber => parseInt(strNumber, 10));
-
+        
         for (i = 2; i <= userNumbers[0]; i++) {
             document.write('<h2>' + i + '단</h2>')
             for (j = 1; j <= userNumbers[1]; j++) {
